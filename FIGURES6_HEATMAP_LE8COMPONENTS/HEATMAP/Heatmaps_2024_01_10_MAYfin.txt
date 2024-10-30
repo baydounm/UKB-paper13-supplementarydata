@@ -1,0 +1,34 @@
+
+
+#-------- Heatmaps using correlations Among  
+# consistent selected mediators and for inconsistent selected mediators
+
+#-------- Heatmaps using correlations Among  
+# consistent selected mediators and for inconsistent selected mediators
+
+setwd ("E:\\DATA_HEATMAP")
+
+
+require(graphics)
+require(grDevices)
+if(!require('gplots')) {
+  install.packages('gplots')
+  library('gplots')
+}
+
+A1 <- read.csv("consistent.csv") ; A1 ;rownames(A1) = A1[,1] ; A1 = A1[,-1]
+
+
+summary.data.frame(A1)
+
+
+data1  <- as.matrix(A1)
+summary(data1)
+
+
+
+heatmap.2(data1, Rowv = NA, dendrogram="both" , col=bluered, 
+          margins = c(15, 10))
+
+##save as PDF here###
+
